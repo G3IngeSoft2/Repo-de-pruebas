@@ -1,0 +1,49 @@
+openapi: 3.0.0
+info:
+  title: API de prueba
+  version: '1.0'
+  contact:
+    name: Fredy Rosero
+    email: faroseroc@unal.edu.co
+  description: Esta es una API de prueba
+servers:
+  - url: 'http://localhost:3000'
+paths:
+  '/libros/{isbn}':
+    parameters:
+      - schema:
+          type: string
+        name: isbn
+        in: path
+        required: true
+    get:
+      summary: Libro endpoint
+      tags: []
+      operationId: get-libros-isbn
+      description: Obtener la info de un libro por su ISBN
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Libros'
+              examples:
+                Cien años de soledad:
+                  value:
+                    ISBN: '9788497592208'
+                    Nombre: One Hundred Years of Solitude
+components:
+  schemas:
+    Libros:
+      title: Libros
+      type: object
+      properties:
+        ISBN:
+          type: string
+        Nombre:
+          type: string
+      x-examples:
+        Cien años de soledad:
+          ISBN: '9788497592208'
+          Nombre: One Hundred Years of Solitude
