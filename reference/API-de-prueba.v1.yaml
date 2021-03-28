@@ -5,7 +5,7 @@ info:
   contact:
     name: Fredy Rosero
     email: faroseroc@unal.edu.co
-  description: Esta es una API de prueba para sincronizar su documentación con GitHub+Spotlight+Postman
+  description: Esta es una API de prueba para sincronizar su documentación con GitHub+Spotlight+Postman.
 servers:
   - url: 'http://localhost:3000'
 paths:
