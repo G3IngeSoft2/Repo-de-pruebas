@@ -20,7 +20,7 @@ paths:
         in: path
         required: true
     get:
-      summary: Libro endpoint
+      summary: Obtener un libro
       tags: []
       operationId: get-libros-isbn
       description: Obtener la info de un libro por su ISBN
@@ -41,7 +41,7 @@ paths:
                       nombre: Gabriel Garcia Marquez
   /libros:
     get:
-      summary: GET endpoint
+      summary: Obtener todos los libros
       tags: []
       responses:
         '200':
@@ -70,7 +70,7 @@ paths:
         required: true
         description: El ID del autor
     get:
-      summary: Your GET endpoint
+      summary: Obtener un autor
       tags: []
       responses:
         '200':
