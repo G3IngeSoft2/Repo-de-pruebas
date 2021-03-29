@@ -36,6 +36,9 @@ paths:
                   value:
                     ISBN: '9788497592208'
                     Nombre: One Hundred Years of Solitude
+                    Autor:
+                      id: 1
+                      nombre: Gabriel Garcia Marquez
   /libros:
     get:
       summary: GET endpoint
@@ -58,17 +61,69 @@ paths:
                       Nombre: Mi Libro
       operationId: get-libros
       description: Obtener todos los libros
+  '/autores/{idautor}':
+    parameters:
+      - schema:
+          type: integer
+        name: idautor
+        in: path
+        required: true
+        description: El ID del autor
+    get:
+      summary: Your GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Autores'
+              examples:
+                Gabo:
+                  value:
+                    id: 1
+                    nombre: Gabriel Garcia Marquez
+                Anom:
+                  value:
+                    id: 0
+                    nombre: Anónimo
+      operationId: get-autores-id_autor
+      description: Obtener la info de un autor en particular
 components:
   schemas:
     Libros:
       title: Libros
       type: object
+      x-examples:
+        Cien aÃ±os de soledad:
+          ISBN: '9788497592208'
+          Nombre: One Hundred Years of Solitude
+          Autor:
+            id: 1
+            nombre: Gabriel Garcia Marquez
       properties:
         ISBN:
           type: string
         Nombre:
           type: string
+        Autor:
+          $ref: '#/components/schemas/Autores'
+      description: ''
+    Autores:
+      title: Autores
+      type: object
+      properties:
+        id:
+          type: integer
+          default: 0
+        nombre:
+          type: string
+      description: ''
       x-examples:
-        Cien aÃ±os de soledad:
-          ISBN: '9788497592208'
-          Nombre: One Hundred Years of Solitude
+        Gabo:
+          id: 1
+          nombre: Gabriel Garcia Marquez
+        Anom:
+          id: 2
+          nombre: Anónimo
