@@ -36,6 +36,28 @@ paths:
                   value:
                     ISBN: '9788497592208'
                     Nombre: One Hundred Years of Solitude
+  /libros:
+    get:
+      summary: GET endpoint
+      tags: []
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Libros'
+              examples:
+                example-1:
+                  value:
+                    - ISBN: '9788497592208'
+                      Nombre: One Hundred Years of Solitude
+                    - ISBN: '1234567890'
+                      Nombre: Mi Libro
+      operationId: get-libros
+      description: Obtener todos los libros
 components:
   schemas:
     Libros:
