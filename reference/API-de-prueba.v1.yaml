@@ -12,7 +12,10 @@ paths:
   '/libros/{isbn}':
     parameters:
       - schema:
-          type: string
+          type: integer
+          example: 9788497592208
+          maximum: 9999999999999
+          minimum: 1000000000
         name: isbn
         in: path
         required: true
